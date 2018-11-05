@@ -29,6 +29,7 @@ export const addLatestLaunch = () => {
           launchDate: launchData.launch_date_local,
         }
         dispatch(addLatestLaunchSuccess(launchObj));
+        dispatch(incrementCounter());
       });
   }
 };
@@ -52,6 +53,7 @@ export const addNextLaunch = () => {
           launchDate: launchData.launch_date_local,
         }
         dispatch(addNextLaunchSuccess(launchObj));
+        dispatch(incrementCounter());
       });
   }
 };

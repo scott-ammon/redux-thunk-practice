@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 export default function Body() {
   return (
-    <Style>
+    <div>
       <h3>Parent Container</h3>
       <Flex>
         <Child name={"One"}>
@@ -16,7 +16,7 @@ export default function Body() {
           <ApiDisplay />
         </Child>
       </Flex>
-    </Style>
+    </div>
   )
 }
 
@@ -24,8 +24,4 @@ const Flex = styled.div`
   display: flex;
   justify-content: space-around;
   border: 1px solid black;
-`;
-
-const Style = styled.div`
-
 `;
