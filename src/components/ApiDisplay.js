@@ -7,7 +7,6 @@ const mapStateToProps = state => {
     count: state.counterReducer.count,
     latestLaunch: state.launchReducer.latest,
     nextLaunch: state.launchReducer.next,
-
   }
 }
 

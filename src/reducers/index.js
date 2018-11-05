@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { INCREMENT_COUNTER,
          ADD_LATEST_LAUNCH_SUCCESS,
-         ADD_NEXT_LAUNCH } from '../actions/index';
+         ADD_NEXT_LAUNCH_SUCCESS } from '../actions/index';
 
 const initialState = {
   count: 0,
@@ -40,7 +40,7 @@ const launchReducer = (state = initialState, action) => {
         },
       });
       return latestLaunch;
-    case ADD_NEXT_LAUNCH:
+    case ADD_NEXT_LAUNCH_SUCCESS:
       const nextLaunch = Object.assign({}, state, {
         next: {
           missionName: action.payload.missionName,
