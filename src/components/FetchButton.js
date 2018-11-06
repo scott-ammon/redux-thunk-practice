@@ -1,15 +1,25 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { incrementCounter, addLatestLaunch, addNextLaunch } from '../actions/index';
+import { addLatestLaunch, addNextLaunch } from '../actions/index';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const mapDispatchToProps = {
-  incrementCounter,
   addLatestLaunch,
   addNextLaunch,
 }
 
 class FetchButton extends Component {
+
+  static propTypes = {
+    addLatestLaunch: PropTypes.func.isRequired,
+    addNextLaunch: PropTypes.func.isRequired,
+  }
+
+  static defaultProps = {
+    addLatestLaunch: () => {},
+    addNextLaunch: () => {},
+  }
 
   render() {
     return (
