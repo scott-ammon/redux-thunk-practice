@@ -32,6 +32,7 @@ const counterReducer = (state = initialState, action) => {
 const launchReducer = (state = initialState, action) => {
   switch(action.type) {
     case ADD_LATEST_LAUNCH_SUCCESS:
+      console.log(action);
       const latestLaunch = Object.assign({}, state, {
         latest: {
           missionName: action.payload.missionName,
