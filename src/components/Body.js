@@ -19,6 +19,8 @@ const Body = () => {
 
 const Flex = styled.div`
   display: flex;
+  width: 70vw;
+  margin: 0 auto;
   justify-content: space-around;
   box-shadow: 0 0.125rem 1.25rem rgba(0,0,0,.2);
 `;

@@ -26,8 +26,11 @@ export const addLatestLaunch = () => {
           rocketName: launchData.rocket.rocket_name,
           launchDate: launchData.launch_date_local,
         }
-        dispatch(addLatestLaunchSuccess(launchObj));
-        dispatch(incrementCounter());
+        // Simulate longer API delay
+        setTimeout(() => {
+          dispatch(addLatestLaunchSuccess(launchObj));
+          dispatch(incrementCounter());
+        }, 2000);
       });
   }
 };
@@ -50,8 +53,11 @@ export const addNextLaunch = () => {
           rocketName: launchData.rocket.rocket_name,
           launchDate: launchData.launch_date_local,
         }
-        dispatch(addNextLaunchSuccess(launchObj));
-        dispatch(incrementCounter());
+        // Simulate longer API delay
+        setTimeout(() => {
+          dispatch(addNextLaunchSuccess(launchObj));
+          dispatch(incrementCounter());
+        }, 2000);
       });
   }
 };
