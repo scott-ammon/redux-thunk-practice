@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { all, call, put, takeEvery } from 'redux-saga/effects';
 import * as api from '../api/index';
 
 function *getLatestLaunch() {
@@ -9,8 +9,10 @@ function *getLatestLaunch() {
       rocketName: launchData.rocket.rocket_name,
       launchDate: launchData.launch_date_local,
     };
-    yield put({type: "INCREMENT_COUNTER"});
-    yield put({type: "ADD_LATEST_LAUNCH_SUCCESS", payload });
+    yield all([
+      put({type: "INCREMENT_COUNTER"}),
+      put({type: "ADD_LATEST_LAUNCH_SUCCESS", payload })
+    ]);
   } catch (error) {
     console.log('Error fetching latest launch data');
   }
@@ -24,8 +26,10 @@ function *getNextLaunch() {
       rocketName: launchData.rocket.rocket_name,
       launchDate: launchData.launch_date_local,
     };
-    yield put({type: "INCREMENT_COUNTER"});
-    yield put({type: "ADD_NEXT_LAUNCH_SUCCESS", payload });
+    yield all([
+      put({type: "INCREMENT_COUNTER"}),
+      put({type: "ADD_NEXT_LAUNCH_SUCCESS", payload })
+    ]);
   } catch (error) {
     console.log('Error fetching next launch data');
   }
