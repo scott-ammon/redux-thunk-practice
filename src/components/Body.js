@@ -4,12 +4,12 @@ import FetchButton from './FetchButton';
 import ApiDisplay from './ApiDisplay';
 import styled from 'styled-components';
 
-export default function Body() {
+const Body = () => {
   return (
     <div>
       <h3>Parent Container</h3>
       <Flex>
-        <Child name={"One"}>
+        <Child>
           <FetchButton />
         </Child>
         <Child name={"Two"}>
@@ -25,3 +25,5 @@ const Flex = styled.div`
   justify-content: space-around;
   border: 1px solid black;
 `;
+
+export default Body

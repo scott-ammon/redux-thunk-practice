@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 
-export default function ChildComponent({ children, name }) {
+const ChildComponent = ({ children, name }) => {
   return (
     <Style>
       <h3>Child Container {name}</h3>
@@ -15,3 +15,5 @@ const Style = styled.div`
   height: 300px;
   border: 1px solid black;
 `;
+
+export default ChildComponent
