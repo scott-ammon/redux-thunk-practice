@@ -6,24 +6,21 @@ import styled from 'styled-components';
 
 const Body = () => {
   return (
-    <div>
-      <h3>Parent Container</h3>
-      <Flex>
-        <Child>
-          <FetchButton />
-        </Child>
-        <Child name={"Two"}>
-          <ApiDisplay />
-        </Child>
-      </Flex>
-    </div>
+    <Flex>
+      <Child name={"Fetch SpaceX Data"}>
+        <FetchButton />
+      </Child>
+      <Child name={"API Results"}>
+        <ApiDisplay />
+      </Child>
+    </Flex>
   )
 }
 
 const Flex = styled.div`
   display: flex;
   justify-content: space-around;
-  border: 1px solid black;
+  box-shadow: 0 0.125rem 1.25rem rgba(0,0,0,.2);
 `;
 
 export default Body

@@ -1,11 +1,16 @@
 import React from 'react'
+import styled from 'styled-components';
 
 const Header = () => {
   return (
-    <div>
+    <Style>
       <h1>Data Flow with Redux</h1>
-    </div>
+    </Style>
   )
 }
 
 export default Header
+
+const Style = styled.div`
+  text-align: center;
+`;

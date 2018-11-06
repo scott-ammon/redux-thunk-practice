@@ -24,11 +24,10 @@ class FetchButton extends Component {
   render() {
     return (
       <Styled>
-        <h4>Fetch SpaceX Data</h4>
-        <button onClick={this.props.addLatestLaunch}>
+        <button onClick={this.props.addLatestLaunch} className="latest">
           Get Latest Launch
         </button>
-        <button onClick={this.props.addNextLaunch}>
+        <button onClick={this.props.addNextLaunch} className="next">
           Get Next Launch
         </button>
       </Styled>
@@ -39,13 +38,18 @@ class FetchButton extends Component {
 export default connect(null, mapDispatchToProps)(FetchButton)
 
 const Styled = styled.div`
-  border: 1px solid blue;
   button {
-    margin-bottom: 1rem;
+    margin: 2rem 0;
     padding: .5rem 1rem;
     border: none;
     border-radius: .5rem;
     background: blue;
     color: white;
+  }
+  .latest {
+    background: blue;
+  }
+  .next {
+    background: red;
   }
 `;

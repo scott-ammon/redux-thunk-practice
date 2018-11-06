@@ -1,9 +1,7 @@
 import * as api from '../api/index';
 
 export const INCREMENT_COUNTER = "INCREMENT_COUNTER";
-export const ADD_LATEST_LAUNCH = "ADD_LATEST_LAUNCH";
 export const ADD_LATEST_LAUNCH_SUCCESS = "ADD_LATEST_LAUNCH_SUCCESS";
-export const ADD_NEXT_LAUNCH = "ADD_NEXT_LAUNCH";
 export const ADD_NEXT_LAUNCH_SUCCESS = "ADD_NEXT_LAUNCH_SUCCESS";
 
 export const incrementCounter = () => ({
