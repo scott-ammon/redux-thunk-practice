@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Header = () => {
   return (
     <Style>
-      <h1>Data Flow with Redux</h1>
+      <h1>Data Flow with Redux-Thunk</h1>
     </Style>
   )
 }
