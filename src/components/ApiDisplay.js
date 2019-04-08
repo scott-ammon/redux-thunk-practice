@@ -8,6 +8,7 @@ const mapStateToProps = state => {
     count: state.counterReducer.count,
     latestLaunch: state.launchReducer.latest,
     nextLaunch: state.launchReducer.next,
+    isFetching: state.launchReducer.isFetching,
   }
 }
 
@@ -27,20 +28,27 @@ class ApiDisplay extends Component {
 
   render() {
     return (
-      <Style>
-        <h4>Call Count: {this.props.count}</h4>
-        <br></br>
-        <h4 className="latest">Latest Launch:</h4>
-        <p>Mission Name: {this.props.latestLaunch.missionName}</p>
-        <p>Rocket Name: {this.props.latestLaunch.rocketName}</p>
-        <p>Launch Date: {this.props.latestLaunch.launchDate.match(/[^T]*/)[0]}</p>
-        <br></br>
-        <h4 className="next">Next Launch:</h4>
-        <p>Mission Name: {this.props.nextLaunch.missionName}</p>
-        <p>Rocket Name: {this.props.nextLaunch.rocketName}</p>
-        <p>Launch Date: {this.props.nextLaunch.launchDate.match(/[^T]*/)[0]}</p>
-      </Style>
-    )
+        this.props.isFetching ? 
+          <Style>
+            <h4>Fetching Data</h4>
+            <div className="container">
+              <div className="loading"></div>
+            </div>
+          </Style> : 
+          <Style>
+            <h4>Call Count: {this.props.count}</h4>
+            <br></br>
+            <h4 className="latest">Latest Launch:</h4>
+            <p>Mission Name: {this.props.latestLaunch.missionName}</p>
+            <p>Rocket Name: {this.props.latestLaunch.rocketName}</p>
+            <p>Launch Date: {this.props.latestLaunch.launchDate.match(/[^T]*/)[0]}</p>
+            <br></br>
+            <h4 className="next">Next Launch:</h4>
+            <p>Mission Name: {this.props.nextLaunch.missionName}</p>
+            <p>Rocket Name: {this.props.nextLaunch.rocketName}</p>
+            <p>Launch Date: {this.props.nextLaunch.launchDate.match(/[^T]*/)[0]}</p>
+          </Style>
+        );
   }
 }
 
@@ -59,6 +67,23 @@ const Style = styled.div`
   }
   .next {
     background: red;
+  }
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .loading {
+    margin: 50px auto 0 auto;
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid blue;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); 
   }
 `;
 

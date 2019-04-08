@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
 import { INCREMENT_COUNTER,
          ADD_LATEST_LAUNCH_SUCCESS,
-         ADD_NEXT_LAUNCH_SUCCESS } from '../actions/index';
+         ADD_NEXT_LAUNCH_SUCCESS,
+         IS_FETCHING } from '../actions/index';
 
-const initialState = {
-  count: 0,
+const initialLaunchState = {
+  isFetching: false,
   latest: {
     missionName: '',
     rocketName: '',
@@ -15,9 +16,13 @@ const initialState = {
     rocketName: '',
     launchDate: '',
   }
-}
+};
 
-const counterReducer = (state = initialState, action) => {
+const initialCountState = {
+  count: 0,
+};
+
+const counterReducer = (state = initialCountState, action) => {
   switch(action.type) {
     case INCREMENT_COUNTER:
       const newCount = {
@@ -29,7 +34,7 @@ const counterReducer = (state = initialState, action) => {
   }
 }
 
-const launchReducer = (state = initialState, action) => {
+const launchReducer = (state = initialLaunchState, action) => {
   switch(action.type) {
     case ADD_LATEST_LAUNCH_SUCCESS:
       const latestLaunch = Object.assign({}, state, {
@@ -38,6 +43,7 @@ const launchReducer = (state = initialState, action) => {
           rocketName: action.payload.rocketName,
           launchDate: action.payload.launchDate,
         },
+        isFetching: false,
       });
       return latestLaunch;
     case ADD_NEXT_LAUNCH_SUCCESS:
@@ -47,8 +53,14 @@ const launchReducer = (state = initialState, action) => {
           rocketName: action.payload.rocketName,
           launchDate: action.payload.launchDate,
         },
+        isFetching: false,
       });
       return nextLaunch;
+    case IS_FETCHING:
+      const fetchStatus = Object.assign({}, state, {
+        isFetching: true,
+      });
+      return fetchStatus;
     default:
       return state;
   }
